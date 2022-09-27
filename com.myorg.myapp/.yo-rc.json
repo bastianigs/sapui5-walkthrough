@@ -1,0 +1,13 @@
+{
+  "generator-ui5-app": {
+    "application": "myapp",
+    "namespace": "com.myorg",
+    "framework": "SAPUI5",
+    "frameworkVersion": "1.105.2",
+    "author": "Sebastian",
+    "initrepo": false,
+    "appId": "com.myorg.myapp",
+    "appURI": "com/myorg/myapp",
+    "setupCompleted": true
+  }
+}

@@ -1,0 +1,27 @@
+<mvc:View 
+	controllerName="opensap.movies.controller.NotFound"
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m">
+	
+	<MessagePage 
+		title="{i18n>notFoundTitle}"
+		text="{i18n>notFoundText}"
+		icon="sap-icon://video"
+		description="{i18n>notFoundDescription}"
+		showNavButton="true"
+		navButtonPress=".onNavBack"/>
+	
+	<!--<App>-->
+	<!--	<pages>-->
+	<!--		<Page -->
+	<!--			showNavButton="true"-->
+	<!--			class="sapUiResponsiveContentPadding"-->
+	<!--			navButtonPress=".onNavBack">-->
+	<!--			<content>-->
+	<!--				<IllustratedMessage/>-->
+	<!--			</content>-->
+	<!--		</Page>-->
+	<!--	</pages>-->
+	<!--</App>-->
+</mvc:View>

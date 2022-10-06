@@ -7,10 +7,13 @@ sap.ui.define([
 ], function (UIComponent, Device, models, ListSelector, ErrorHandler) {
 	"use strict";
 
-	return UIComponent.extend("opensap.orders.Orders.Component", {
+	return UIComponent.extend("opensap.orders.Component", {
 
 		metadata : {
-			manifest : "json"
+			manifest : "json",
+			config: {
+				fullWidth: true
+			}
 		},
 
 		/**

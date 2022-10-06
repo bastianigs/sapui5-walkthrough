@@ -1,15 +1,17 @@
+/*global location */
 sap.ui.define([
 	"./BaseController",
 	"sap/ui/model/json/JSONModel",
 	"../model/formatter",
-	"sap/m/library"
-], function (BaseController, JSONModel, formatter, mobileLibrary) {
+	"sap/m/library",
+	"sap/ui/Device"
+], function (BaseController, JSONModel, formatter, mobileLibrary, Device) {
 	"use strict";
 
 	// shortcut for sap.m.URLHelper
 	var URLHelper = mobileLibrary.URLHelper;
 
-	return BaseController.extend("opensap.orders.Orders.controller.Detail", {
+	return BaseController.extend("opensap.orders.controller.Detail", {
 
 		formatter: formatter,
 
@@ -28,6 +30,8 @@ sap.ui.define([
 			});
 
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
+			this.getRouter().getRoute("Info").attachPatternMatched(this._onObjectMatched, this);
+			this.getRouter().getRoute("create").attachPatternMatched(this._onObjectMatched, this);
 
 			this.setModel(oViewModel, "detailView");
 
@@ -37,6 +41,14 @@ sap.ui.define([
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
+		
+		onCreate: function (oEvent) {
+			var bReplace = !Device.system.phone;
+			this.getRouter().navTo("create", {
+				objectId : oEvent.getSource().getBindingContext().getProperty("SalesOrderID")
+			}, bReplace);
+		},
+
 
 		/**
 		 * Event handler when the share by E-Mail button has been clicked
@@ -87,10 +99,17 @@ sap.ui.define([
 		 */
 		_onObjectMatched : function (oEvent) {
 			var sObjectId =  oEvent.getParameter("arguments").objectId;
-			this.getModel("appView").setProperty("/layout", "TwoColumnsMidExpanded");
+
+			if (!sObjectId) {
+				return;
+			}
+			if (oEvent.getParameter("name") === "object") {
+				this.getModel("appView").setProperty("/layout", "TwoColumnsMidExpanded");
+			}
+
 			this.getModel().metadataLoaded().then( function() {
 				var sObjectPath = this.getModel().createKey("SalesOrderSet", {
-					SalesOrderID :  sObjectId
+					SalesOrderID : sObjectId
 				});
 				this._bindView("/" + sObjectPath);
 			}.bind(this));
@@ -180,6 +199,7 @@ sap.ui.define([
 		 */
 		onCloseDetailPress: function () {
 			this.getModel("appView").setProperty("/actionButtonsInfo/midColumn/fullScreen", false);
+			this.byId("lineItemsList").removeSelections(true);
 			// No item should be selected on master after detail page is closed
 			this.getOwnerComponent().oListSelector.clearMasterListSelection();
 			this.getRouter().navTo("master");
@@ -199,6 +219,17 @@ sap.ui.define([
 				// reset to previous layout
 				this.getModel("appView").setProperty("/layout",  this.getModel("appView").getProperty("/previousLayout"));
 			}
+		},
+
+		/**
+		 * @param {sap.ui.base.Event} oEvent pattern match event in route 'object'
+		 */
+		action: function (oEvent) {
+			var bReplace = !Device.system.phone;
+			this.getRouter().navTo("Info", {
+				objectId : (oEvent.getParameter("listItem") || oEvent.getSource()).getBindingContext().getProperty("SalesOrderID"),
+				itemPosition : (oEvent.getParameter("listItem") || oEvent.getSource()).getBindingContext().getProperty("ItemPosition")
+			}, bReplace);
 		}
 	});
 

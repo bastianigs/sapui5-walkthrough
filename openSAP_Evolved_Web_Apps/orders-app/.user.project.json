@@ -1,7 +1,7 @@
 {
 	"run": [
 		{
-			"filePath": "/Orders/webapp/index.html",
+			"filePath": "/orders/webapp/index.html",
 			"previewMode": 1,
 			"dataMode": 1,
 			"workspace": "withoutWorkspace",
@@ -22,13 +22,13 @@
 			"ui5VerSource": null,
 			"isDefaultVersion": 1,
 			"_metadata": {
-				"id": "8910624",
+				"id": "9101775",
 				"runnerId": "webapprunner",
 				"displayName": "App"
 			}
 		},
 		{
-			"filePath": "/Orders/webapp/test/mockServer.html",
+			"filePath": "/orders/webapp/test/mockServer.html",
 			"previewMode": 1,
 			"dataMode": 1,
 			"workspace": "withoutWorkspace",
@@ -49,13 +49,13 @@
 			"ui5VerSource": null,
 			"isDefaultVersion": 1,
 			"_metadata": {
-				"id": "1734695",
+				"id": "102512",
 				"runnerId": "webapprunner",
 				"displayName": "App (Mock Server)"
 			}
 		},
 		{
-			"filePath": "/Orders/webapp/test/unit/unitTests.qunit.html",
+			"filePath": "/orders/webapp/test/unit/unitTests.qunit.html",
 			"previewMode": 1,
 			"dataMode": 1,
 			"workspace": "withoutWorkspace",
@@ -75,13 +75,13 @@
 				}
 			],
 			"_metadata": {
-				"id": "5153406",
+				"id": "100594",
 				"runnerId": "webapprunner",
 				"displayName": "Unit Tests"
 			}
 		},
 		{
-			"filePath": "/Orders/webapp/test/integration/opaTests.qunit.html",
+			"filePath": "/orders/webapp/test/integration/opaTests.qunit.html",
 			"previewMode": 1,
 			"dataMode": 1,
 			"workspace": "withoutWorkspace",
@@ -102,13 +102,13 @@
 			],
 			"hashParameter": "",
 			"_metadata": {
-				"id": "3278356",
+				"id": "800951",
 				"runnerId": "webapprunner",
 				"displayName": "OPA Tests"
 			}
 		},
 		{
-			"filePath": "/Orders/webapp/test/testsuite.qunit.html",
+			"filePath": "/orders/webapp/test/testsuite.qunit.html",
 			"previewMode": 1,
 			"dataMode": 1,
 			"workspace": "withoutWorkspace",
@@ -129,7 +129,7 @@
 			],
 			"hashParameter": "",
 			"_metadata": {
-				"id": "3162425",
+				"id": "1744611",
 				"runnerId": "webapprunner",
 				"displayName": "Test Suite (Unit, OPA)"
 			}

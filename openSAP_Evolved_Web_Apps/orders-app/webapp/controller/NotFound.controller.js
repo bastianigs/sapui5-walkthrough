@@ -3,14 +3,14 @@ sap.ui.define([
 ], function (BaseController) {
 	"use strict";
 
-	return BaseController.extend("opensap.orders.Orders.controller.NotFound", {
+	return BaseController.extend("opensap.orders.controller.NotFound", {
 
 		onInit: function () {
 			this.getRouter().getTarget("notFound").attachDisplay(this._onNotFoundDisplayed, this);
 		},
 
 		_onNotFoundDisplayed : function () {
-			this.getModel("appView").setProperty("/layout", "OneColumn");
+				this.getModel("appView").setProperty("/layout", "OneColumn");
 		}
 	});
 });

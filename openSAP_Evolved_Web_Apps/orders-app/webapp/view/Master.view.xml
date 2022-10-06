@@ -1,9 +1,10 @@
 <mvc:View
-	controllerName="opensap.orders.Orders.controller.Master"
+	controllerName="opensap.orders.controller.Master"
 	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:l="sap.ui.layout"
 	xmlns:semantic="sap.f.semantic"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:l="sap.ui.layout">
+	xmlns:mvc="sap.ui.core.mvc">
 
 	<semantic:SemanticPage
 		id="masterPage"
@@ -12,18 +13,16 @@
 		<semantic:headerContent>
 			<Title
 				id="masterPageTitle"
-				text="{masterView>/title}"
-				level="H2"/>
+				text="{masterView>/title}"/>
 		</semantic:headerContent>
 		<semantic:titleHeading>
 			<l:HorizontalLayout>
-				<Avatar
+				<f:Avatar
 					src="sap-icon://sap-ui5"
-					displaySize="L"
-					displayShape="Circle"/>
+					displaySize="L"/>
 				<l:VerticalLayout class="sapUiSmallMargin">
 					<Title level="H1" titleStyle="H1" text="UI5 Air Cargo"/>
-					<Text text="You name it, we ship it"/>
+					<Text text="You name it, we ship it!"/>
 				</l:VerticalLayout>
 			</l:HorizontalLayout>
 		</semantic:titleHeading>
@@ -36,11 +35,11 @@
 				items="{
 					path: '/SalesOrderSet',
 					sorter: {
-						path: 'CustomerName',
-						descending: false
+						path: 'CreatedAt',
+						descending: true
 					},
 					parameters: {
-						expand: 'ToBusinessPartner'
+						'expand': 'ToBusinessPartner'
 					},
 					groupHeaderFactory: '.createGroupHeader'
 				}"
@@ -59,8 +58,7 @@
 						press=".onOpenViewSettings">
 						<Title
 							id="filterBarLabel"
-							text="{masterView>/filterBarLabel}"
-							level="H3"/>
+							text="{masterView>/filterBarLabel}"/>
 					</Toolbar>
 				</infoToolbar>
 				<headerToolbar>
@@ -107,27 +105,25 @@
 							formatter: '.formatter.currencyValue'
 						}"
 						numberUnit="{CurrencyCode}">
-						
-						<ObjectAttribute
-							text="{
-									path: 'CreatedAt',
-									type: 'sap.ui.model.type.Date',
-									formatOptions: {
-										style: 'short'
-									}
-								}"/>
+						<ObjectAttribute text="{
+							path: 'CreatedAt',
+							type: 'sap.ui.model.type.Date',
+							formatOptions: {
+								style: 'short'
+							}
+						}"/>
 						<ObjectAttribute text="{ToBusinessPartner/BusinessPartnerID}"/>
 						<firstStatus>
-							<ObjectStatus 
-									title="{ToBusinessPartner/Address/Country}"
-									text="{ToBusinessPartner/Address/City}"/>
+							<ObjectStatus
+								title ="{ToBusinessPartner/Address/Country}"
+								text="{ToBusinessPartner/Address/City}"/>
 						</firstStatus>
 						<markers>
 							<ObjectMarker type="{=
 								${ToBusinessPartner/Address/Country} === 'MX' &amp;&amp;
-								${ToBusinessPartner/Address/City} === 'Mexiko City'
-								? 'Favorite' : 'Flagged'
-							}"/>
+								${ToBusinessPartner/Address/City} ==='Mexiko City'
+							 	? 'Favorite' : 'Flagged'
+							 }"/>
 						</markers>
 					</ObjectListItem>
 				</items>

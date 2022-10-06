@@ -1,3 +1,4 @@
+/*global history */
 sap.ui.define([
 	"./BaseController",
 	"sap/ui/model/json/JSONModel",
@@ -11,7 +12,7 @@ sap.ui.define([
 ], function (BaseController, JSONModel, Filter, Sorter, FilterOperator, GroupHeaderListItem, Device, Fragment, formatter) {
 	"use strict";
 
-	return BaseController.extend("opensap.orders.Orders.controller.Master", {
+	return BaseController.extend("opensap.orders.controller.Master", {
 
 		formatter: formatter,
 
@@ -34,9 +35,9 @@ sap.ui.define([
 
 			this._oGroupFunctions = {
 				NetAmount : function(oContext) {
-					var iNumber = oContext.getProperty('NetAmount'),
+					var iGrouper = oContext.getProperty('NetAmount'),
 						key, text;
-					if (iNumber <= 20) {
+					if (iGrouper <= 20) {
 						key = "LE20";
 						text = this.getResourceBundle().getText("masterGroup1Header1");
 					} else {
@@ -137,7 +138,7 @@ sap.ui.define([
 		onOpenViewSettings : function (oEvent) {
 			var sDialogTab = "filter";
 			if (oEvent.getSource() instanceof sap.m.Button) {
-				var sButtonId = oEvent.getSource().getId();
+				var sButtonId = oEvent.getSource().sId;
 				if (sButtonId.match("sort")) {
 					sDialogTab = "sort";
 				} else if (sButtonId.match("group")) {
@@ -148,7 +149,7 @@ sap.ui.define([
 			if (!this.byId("viewSettingsDialog")) {
 				Fragment.load({
 					id: this.getView().getId(),
-					name: "opensap.orders.Orders.view.ViewSettingsDialog",
+					name: "opensap.orders.view.ViewSettingsDialog",
 					controller: this
 				}).then(function(oDialog){
 					// connect dialog to the root view of this component (models, lifecycle)

@@ -1,11 +1,11 @@
 sap.ui.define([
 	"sap/ui/test/Opa5",
-	"opensap/orders/Orders/localService/mockserver",
+	"opensap/orders/localService/mockserver",
 	"sap/ui/model/odata/v2/ODataModel"
-], function (Opa5, mockserver, ODataModel) {
+], function(Opa5, mockserver, ODataModel) {
 	"use strict";
 
-	return Opa5.extend("opensap.orders.Orders.test.integration.arrangements.Startup", {
+	return Opa5.extend("opensap.orders.test.integration.arrangements.Startup", {
 
 		/**
 		 * Initializes mock server, then starts the app component
@@ -14,13 +14,13 @@ sap.ui.define([
 		 * @param {string} [oOptionsParameter.hash] The in-app hash can also be passed separately for better readability in tests
 		 * @param {boolean} [oOptionsParameter.autoWait=true] Automatically wait for pending requests while the application is starting up
 		 */
-		iStartMyApp: function (oOptionsParameter) {
+		iStartMyApp : function (oOptionsParameter) {
 			var oOptions = oOptionsParameter || {};
-			oOptions.autoWait = typeof oOptions.autoWait !== "undefined" ? oOptions.autoWait : true;
-			// start the app with a minimal delay to make tests fast but still async to discover basic timing issues
-			oOptions.delay = oOptions.delay || 1;
 
 			this._clearSharedData();
+
+			// start the app with a minimal delay to make tests fast but still async to discover basic timing issues
+			oOptions.delay = oOptions.delay || 1;
 
 			// configure mock server with the current options
 			var oMockServerInitialized = mockserver.init(oOptions);
@@ -29,7 +29,7 @@ sap.ui.define([
 			// start the app UI component
 			this.iStartMyUIComponent({
 				componentConfig: {
-					name: "opensap.orders.Orders",
+					name: "opensap.orders",
 					async: true
 				},
 				hash: oOptions.hash,

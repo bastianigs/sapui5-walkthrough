@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="opensap.orders.Orders.controller.NotFound"
+	controllerName="opensap.orders.controller.NotFound"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
 

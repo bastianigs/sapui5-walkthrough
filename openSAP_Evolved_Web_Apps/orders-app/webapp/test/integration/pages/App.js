@@ -1,18 +1,21 @@
 sap.ui.define([
 	"sap/ui/test/Opa5",
 	"sap/ui/test/matchers/PropertyStrictEquals"
-], function (Opa5, PropertyStrictEquals) {
+], function(Opa5, PropertyStrictEquals) {
 	"use strict";
 
+	var sViewName = "App",
+		sAppControl = "app";
+
 	Opa5.createPageObjects({
-		onTheAppPage: {
+		onTheAppPage : {
 
-			actions: {
+			actions : {
 
-				iCloseTheMessageBox: function () {
+				iCloseTheMessageBox : function () {
 					return this.waitFor({
-						searchOpenDialogs: true,
 						id: "serviceErrorMessageBox",
+						autoWait: false,
 						success: function (oMessageBox) {
 							oMessageBox.destroy();
 							Opa5.assert.ok(true, "The MessageBox was closed");
@@ -21,30 +24,44 @@ sap.ui.define([
 				}
 			},
 
-			assertions: {
+			assertions : {
 
-				iShouldSeeTheMessageBox: function () {
+				iShouldSeeTheBusyIndicator : function () {
 					return this.waitFor({
-						searchOpenDialogs: true,
-						id: "serviceErrorMessageBox",
-						success: function () {
-							Opa5.assert.ok(true, "The correct MessageBox was shown");
-						}
+						id : sAppControl,
+						viewName : sViewName,
+						matchers: new PropertyStrictEquals({
+							name: "busy",
+							value: true
+						}),
+						autoWait: false,
+						success : function () {
+							Opa5.assert.ok(true, "The app is busy");
+						},
+						errorMessage : "The app is not busy"
 					});
 				},
 
 				theAppShowsFCLDesign: function (sLayout) {
 					return this.waitFor({
-						id: "layout",
-						viewName: "App",
-						matchers: new PropertyStrictEquals({
-							name: "layout",
-							value: sLayout
-						}),
-						success: function () {
+						id : "layout",
+						viewName : "App",
+						matchers : new PropertyStrictEquals({name: "layout", value: sLayout}),
+						success : function () {
 							Opa5.assert.ok(true, "the app shows " + sLayout + " layout");
 						},
-						errorMessage: "The app does not show " + sLayout + " layout"
+						errorMessage : "The app does not show " + sLayout + " layout"
+					});
+				},
+
+				iShouldSeeTheMessageBox : function () {
+					return this.waitFor({
+						searchOpenDialogs: true,
+						controlType: "sap.m.Dialog",
+						matchers : new PropertyStrictEquals({ name: "type", value: "Message"}),
+						success: function () {
+							Opa5.assert.ok(true, "The correct MessageBox was shown");
+						}
 					});
 				}
 

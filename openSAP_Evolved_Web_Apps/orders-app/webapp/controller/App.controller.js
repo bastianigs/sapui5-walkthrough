@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (BaseController, JSONModel) {
 	"use strict";
 
-	return BaseController.extend("opensap.orders.Orders.controller.App", {
+	return BaseController.extend("opensap.orders.controller.App", {
 
 		onInit : function () {
 			var oViewModel,

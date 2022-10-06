@@ -5,8 +5,7 @@
       "target": {
         "type": "service",
         "name": "sapui5",
-        "entryPath": "/resources",
-        "version": "1.96.14"
+        "entryPath": "/resources"
       },
       "description": "SAPUI5 Resources"
     },
@@ -15,8 +14,7 @@
       "target": {
         "type": "service",
         "name": "sapui5",
-        "entryPath": "/test-resources",
-        "version": "1.96.14"
+        "entryPath": "/test-resources"
       },
       "description": "SAPUI5 Test Resources"
     },
@@ -25,8 +23,7 @@
       "target": {
         "type": "service",
         "name": "sapui5",
-        "entryPath": "/resources",
-        "version": "1.96.14"
+        "entryPath": "/resources"
       },
       "description": "SAPUI5 Resources"
     },
@@ -35,17 +32,15 @@
       "target": {
         "type": "service",
         "name": "sapui5",
-        "entryPath": "/test-resources",
-        "version": "1.96.14"
+        "entryPath": "/test-resources"
       },
       "description": "SAPUI5 Test Resources"
     },
     {
-      "path": "/sap/opu/odata",
+      "path": "/ES5",
       "target": {
         "type": "destination",
-        "name": "ES5",
-        "entryPath": "/sap/opu/odata"
+        "name": "ES5"
       },
       "description": "SAP Gateway Demo System"
     }

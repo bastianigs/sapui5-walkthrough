@@ -7,7 +7,7 @@ sap.ui.define([
 	"use strict";
 
 	var oMockServer,
-		_sAppPath = "opensap/orders/Orders/",
+		_sAppPath = "opensap/orders/",
 		_sJsonFilesPath = _sAppPath + "localService/mockdata";
 
 	var oMockServerInterface = {
@@ -35,8 +35,6 @@ sap.ui.define([
 						sMetadataUrl = sap.ui.require.toUrl(_sAppPath + oMainDataSource.settings.localUri),
 						// ensure there is a trailing slash
 						sMockServerUrl = /.*\/$/.test(oMainDataSource.uri) ? oMainDataSource.uri : oMainDataSource.uri + "/";
-						// ensure the URL to be relative to the application
-						sMockServerUrl = sMockServerUrl && new URI(sMockServerUrl).absoluteTo(sap.ui.require.toUrl(_sAppPath)).toString();
 
 					// create a mock server instance or stop the existing one to reinitialize
 					if (!oMockServer) {
@@ -61,7 +59,7 @@ sap.ui.define([
 
 					var aRequests = oMockServer.getRequests();
 
-					// compose an error response for each request
+					// compose an error response for a request
 					var fnResponse = function (iErrCode, sMessage, aRequest) {
 						aRequest.response = function(oXhr){
 							oXhr.respond(iErrCode, {"Content-Type": "text/plain;charset=utf-8"}, sMessage);

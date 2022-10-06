@@ -1,10 +1,11 @@
+/*global history */
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/routing/History"
 ], function (Controller, History) {
 	"use strict";
 
-	return Controller.extend("opensap.orders.Orders.controller.BaseController", {
+	return Controller.extend("opensap.orders.controller.BaseController", {
 		/**
 		 * Convenience method for accessing the router in every controller of the application.
 		 * @public

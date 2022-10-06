@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="opensap.orders.Orders.controller.App"
+	controllerName="opensap.orders.controller.App"
 	displayBlock="true"
 	height="100%"
 	xmlns="sap.m"

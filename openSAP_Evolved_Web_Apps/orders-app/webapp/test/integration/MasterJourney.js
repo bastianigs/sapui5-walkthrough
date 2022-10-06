@@ -29,7 +29,7 @@ sap.ui.define([
 
 	opaTest("Entering something that cannot be found into search field and pressing search field's refresh should leave the list as it was", function (Given, When, Then) {
 		//Actions
-		When.onTheMasterPage.iSearchForSomethingWithNoResults;
+		When.onTheMasterPage.iTypeSomethingInTheSearchThatCannotBeFoundAndTriggerRefresh();
 
 		// Assertions
 		Then.onTheMasterPage.theListHasEntries();
@@ -52,7 +52,7 @@ sap.ui.define([
 		Then.onTheMasterPage.theListShouldHaveAllEntries();
 	});
 
-	opaTest("MasterList Sorting on Name", function (Given, When, Then) {
+	opaTest("MasterList Sorting on Name", function(Given, When, Then) {
 		// Actions
 		When.onTheMasterPage.iSortTheListOnName();
 
@@ -60,7 +60,7 @@ sap.ui.define([
 		Then.onTheMasterPage.theListShouldBeSortedAscendingOnName();
 	});
 
-	opaTest("MasterList Filtering on UnitNumber less than 100", function (Given, When, Then) {
+	opaTest("MasterList Filtering on UnitNumber less than 100", function(Given, When, Then) {
 		// Action
 		When.onTheMasterPage.iFilterTheListOnUnitNumber();
 
@@ -68,7 +68,7 @@ sap.ui.define([
 		Then.onTheMasterPage.theListShouldBeFilteredOnUnitNumber();
 	});
 
-	opaTest("MasterList remove filter should display all items", function (Given, When, Then) {
+	opaTest("MasterList remove filter should display all items", function(Given, When, Then) {
 		// Action
 		When.onTheMasterPage.iOpenViewSettingsDialog().
 		and.iPressResetInViewSelectionDialog().
@@ -79,7 +79,7 @@ sap.ui.define([
 	});
 
 
-	opaTest("MasterList Sorting on UnitNumber", function (Given, When, Then) {
+	opaTest("MasterList Sorting on UnitNumber", function(Given, When, Then) {
 		// Actions
 		When.onTheMasterPage.iSortTheListOnUnitNumber();
 
@@ -87,7 +87,7 @@ sap.ui.define([
 		Then.onTheMasterPage.theListShouldBeSortedAscendingOnUnitNumber();
 	});
 
-	opaTest("MasterList grouping created group headers", function (Given, When, Then) {
+	opaTest("MasterList grouping created group headers", function(Given, When, Then) {
 		// Action
 		When.onTheMasterPage.iGroupTheList();
 
@@ -95,7 +95,7 @@ sap.ui.define([
 		Then.onTheMasterPage.theListShouldContainAGroupHeader();
 	});
 
-	opaTest("Remove grouping from MasterList delivers initial list", function (Given, When, Then) {
+	opaTest("Remove grouping from MasterList delivers initial list", function(Given, When, Then) {
 		// Action
 		When.onTheMasterPage.iRemoveListGrouping();
 
@@ -104,7 +104,7 @@ sap.ui.define([
 			and.theListShouldHaveAllEntries();
 	});
 
-	opaTest("Grouping the master list and sorting it should deliver the initial list", function (Given, When, Then) {
+	opaTest("Grouping the master list and sorting it should deliver the initial list", function(Given, When, Then) {
 		// Action
 		When.onTheMasterPage.iGroupTheList().
 		and.iSortTheListOnUnitNumber();

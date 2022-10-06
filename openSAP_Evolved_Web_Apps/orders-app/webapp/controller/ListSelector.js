@@ -4,14 +4,14 @@ sap.ui.define([
 ], function (BaseObject, Log) {
 	"use strict";
 
-	return BaseObject.extend("opensap.orders.Orders.controller.ListSelector", {
+	return BaseObject.extend("opensap.orders.controller.ListSelector", {
 
 		/**
 		 * Provides a convenience API for selecting list items. All the functions will wait until the initial load of the a List passed to the instance by the setBoundMasterList
 		 * function.
 		 * @class
 		 * @public
-		 * @alias opensap.orders.Orders.controller.ListSelector
+		 * @alias opensap.orders.controller.ListSelector
 		 */
 
 		constructor : function () {

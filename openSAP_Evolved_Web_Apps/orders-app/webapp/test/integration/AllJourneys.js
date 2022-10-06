@@ -8,14 +8,13 @@ sap.ui.define([
 	"./arrangements/Startup",
 	"./MasterJourney",
 	"./NavigationJourney",
-	"./NotFoundJourney"
+	"./NotFoundJourney",
+	"./BusyJourney"
 ], function (Opa5, Startup) {
 	"use strict";
-
 	Opa5.extendConfig({
-
 		arrangements: new Startup(),
-		viewNamespace: "opensap.orders.Orders.view.",
+		viewNamespace: "opensap.orders.view.",
 		autoWait: true
 	});
 });

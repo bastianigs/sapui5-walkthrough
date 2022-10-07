@@ -71,6 +71,13 @@
 		
 		<uxap:footer>
 			<OverflowToolbar>
+				<Button
+					id="messagePopoverButton"
+					icon="sap-icon://message-popup"
+					type="Emphasized"
+					text="{= ${message>/}.length }"
+					visible="{= !!${message>/}.length }"
+					press=".onOpenMessages"/>
 				<ToolbarSpacer/>
 				<Button
 					id="createButton"
@@ -84,5 +91,17 @@
 					press=".onCancel"/>
 			</OverflowToolbar>
 		</uxap:footer>
+		
+		<uxap:dependents>
+			<MessagePopover
+				id="messages"
+				items="{message>/}">
+				<MessageItem
+				type="{message>type}"
+				title="{message>message}"
+				subtitle="{message>additionalText}"
+				description="{message>description}"/>
+			</MessagePopover>
+		</uxap:dependents>
 	</uxap:ObjectPageLayout>
 </mvc:View>

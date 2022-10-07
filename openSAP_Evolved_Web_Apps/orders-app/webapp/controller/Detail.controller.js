@@ -4,8 +4,10 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"../model/formatter",
 	"sap/m/library",
-	"sap/ui/Device"
-], function (BaseController, JSONModel, formatter, mobileLibrary, Device) {
+	"sap/ui/Device",
+	"sap/m/MessageToast"
+	
+], function (BaseController, JSONModel, formatter, mobileLibrary, Device, MessageToast) {
 	"use strict";
 
 	// shortcut for sap.m.URLHelper
@@ -230,6 +232,87 @@ sap.ui.define([
 				objectId : (oEvent.getParameter("listItem") || oEvent.getSource()).getBindingContext().getProperty("SalesOrderID"),
 				itemPosition : (oEvent.getParameter("listItem") || oEvent.getSource()).getBindingContext().getProperty("ItemPosition")
 			}, bReplace);
+		},
+		
+		onConfirm: function (oEvent) {
+			var oBinding = oEvent.getSource().getBindingContext().getObject();
+			var oMessage = this.getResourceBundle().getText( "OrderPreparationMessage", [oBinding.CustomerID, oBinding.CustomerName]);
+			MessageToast.show(oMessage);
+		},
+		
+		// onDelete : function (oEvent) {
+		// 	// delete the dragged item
+		// 	var oItemToDelete = oEvent.getParameter("draggedControl");
+		// 	// delete the selected item from the list - if nothing selected, remove the
+		// 	first item
+		// 	if (!oItemToDelete) {
+		// 	var oList = this.byId("lineItemsList");
+		// 	oItemToDelete = oList.getSelectedItem() || oList.getItems()[0];
+		// 	}
+		// 	// delete the item after user confirmation
+		// 	var sPath = oItemToDelete.getBindingContextPath(),
+		// 	sTitle = oItemToDelete.getBindingContext().getProperty("ProductID");
+		// 	this._confirmDelete(sPath, sTitle);
+		// }
+		
+		onDelete: function (oEvent) {
+			var oItemToDelete = oEvent.getParameter("draggedControl");
+			
+			if (!oItemToDelete) {
+				var oList = this.byId("lineItemList");
+				oItemToDelete = oList.getSelectedItem() || oList.getItems()[0];
+			}
+			
+			var sPath = oItemToDelete.getBindingContextPath();
+			var sTitle = oItemToDelete.getBindingContext().getProperty("ProductID");
+			
+			this._confirmDelete( sPath, sTitle );
+		},
+		
+		_confirmDelete : function (sPath, sTitle) {
+			var oResourceBundle = this.getResourceBundle();
+			sap.ui.require(["sap/m/MessageBox"], function (MessageBox) {
+				MessageBox.confirm(oResourceBundle.getText("deleteConfirmationMessage", [sTitle]), {
+					title: oResourceBundle.getText("confirmTitle"),
+					onClose: function (sAction) {
+						if (sAction === "OK") {
+							this.getModel().remove(sPath, {
+								success : function () {
+									MessageToast.show(oResourceBundle.getText("deleteSuccessMessage"));
+								},
+								error : function () {
+									MessageBox.error(oResourceBundle.getText("deleteErrorMessage"));
+								}
+							});
+						}
+					}.bind(this)
+				});
+			}.bind(this));
+		},
+		
+		handleReorder: function (oEvent) {
+			var oItemToReorder = oEvent.getParameter("draggedControl"),
+				oItemToReorderContext = oItemToReorder.getBindingContextPath();
+				
+			var oItemDroppedOver = oEvent.getParameter("droppedControl"),
+				oItemDroppedOverContext = oItemDroppedOver.getBindingContextPath();
+			
+			if (!oItemToReorderContext || !oItemDroppedOverContext) {
+				return;
+			}
+			
+			var sDropPosition = oEvent.getParameter("dropPosition");
+			var oDroppedTable = oItemDroppedOver.getParent();
+			var iDraggedItemIndex = oDroppedTable.indexOfItem(oItemToReorder);
+			var iDroppedItemIndex = oDroppedTable.indexOfItem(oItemDroppedOver);
+			
+			// find the new index of the dragged row depending on the drop position
+			var iNewItemIndex = iDroppedItemIndex + (sDropPosition === "Before" ? 0 : 1) + (iDraggedItemIndex < iDroppedItemIndex ? -1 : 0);
+			
+			// remove the dragged item
+			oDroppedTable.removeItem(oItemToReorder);
+			// insert the dragged item on the new drop index
+			oDroppedTable.insertItem(oItemToReorder, iNewItemIndex);
 		}
 	});
 

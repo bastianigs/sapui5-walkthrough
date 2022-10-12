@@ -1,0 +1,4 @@
+
+> orders@1.0.0 localproxy
+> lcp --proxyUrl https://USERNAME:PASSWORT@sapes5.sapdevcenter.com/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/
+

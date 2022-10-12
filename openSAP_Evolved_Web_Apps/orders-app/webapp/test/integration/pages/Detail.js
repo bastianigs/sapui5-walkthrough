@@ -16,6 +16,19 @@ sap.ui.define([
 			baseClass : Common,
 
 			actions : {
+				
+				iPressOnTheFirstObject : function () {
+					return this.waitFor({
+						id : "lineItemsList",
+						viewName : sViewName,
+						matchers : function (oList) {
+							return oList.getItems()[0];
+						},
+						actions : new Press(),
+						errorMessage : "Table 'lineItemsList' in view '" + sViewName + "'does not contain an ObjectListItem at position 0"
+					});
+				},
+
 
 				iPressTheHeaderActionButton: function (sId) {
 					return this.waitFor({

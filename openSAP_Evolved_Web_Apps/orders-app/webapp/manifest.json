@@ -12,7 +12,7 @@
 		"resources": "resources.json",
 		"dataSources": {
 			"mainService": {
-				"uri": "/ES5/sap/opu/odata/iwbep/GWSAMPLE_BASIC/",
+				"uri": "http://localhost:8010/proxy",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
@@ -56,8 +56,7 @@
 				"sap.f": {},
 				"sap.ui.layout": {},
 				"sap.uxap": {},
-				"sap.tnt": {},
-				"sap.suite.ui.commons": {}
+				"sap.tnt": {}
 			}
 		},
 		"contentDensities": {
@@ -159,5 +158,9 @@
 				}
 			}
 		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
 	}
 }

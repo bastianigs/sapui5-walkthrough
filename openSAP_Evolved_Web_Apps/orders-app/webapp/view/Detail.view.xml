@@ -3,7 +3,6 @@
 	xmlns="sap.m"
 	xmlns:semantic="sap.f.semantic"
 	xmlns:tnt="sap.tnt"
-	xmlns:si="sap.suite.ui.commons.statusindicator"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:l="sap.ui.layout"
 	xmlns:control="opensap.orders.control"
@@ -103,27 +102,15 @@
 										style: 'medium'
 									}
 								}"/>
-								<si:StatusIndicator
-									id="statusIndicator"
-									width="4.5rem"
-									height="3.5rem"
-									value="{= 100 - (Date.now() - Date.parse(${DeliveryDate})) / 86400000 * 7 }">
-									<si:ShapeGroup>
-										<si:LibraryShape id="customShape0" shapeId="vehicle_truck_1"/>
-									</si:ShapeGroup>
-									<si:propertyThresholds>
-										<si:PropertyThreshold fillColor="Error" toValue="50"/>
-										<si:PropertyThreshold fillColor="Critical" toValue="65"/>
-										<si:PropertyThreshold fillColor="Neutral" toValue="80"/>
-										<si:PropertyThreshold fillColor="Good" toValue="100"/>
-									</si:propertyThresholds>
-								</si:StatusIndicator>
 								<ObjectNumber
 									number="{
 										path: 'NetAmount',
 										formatter: '.formatter.currencyValue'
 									}"
-									unit="{CurrencyCode}"/>
+									unit="{
+										path: 'CurrencyCode',
+										formatter: '.formatter.convertCurrencyCodeToSymbol'
+									}"/>
 							</cells>
 							<control:DeleteButton icon="sap-icon://delete" press=".onDelete">
 			</control:DeleteButton>

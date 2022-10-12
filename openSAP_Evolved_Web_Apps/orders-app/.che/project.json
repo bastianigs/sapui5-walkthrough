@@ -1,1 +1,1 @@
-{"type":"sap.web","builders":{"configs":{}},"runners":{"configs":{}},"attributes":{},"mixinTypes":[]}
+{"type":"sap.web","builders":{"configs":{}},"runners":{"configs":{}},"attributes":{"sap.watt.common.setting":["{\"mockpreview\":{\"loadJSONFiles\":true},\"hcpdeploy\":{\"account\":\"qv4etfmv58\",\"name\":\"orders\",\"lastVersionWeTriedToDeploy\":\"1.0.0\"}}"]},"mixinTypes":[]}

@@ -1,0 +1,37 @@
+{
+	"fileName": "id_1665757746573_106_addXML",
+	"fileType": "change",
+	"changeType": "addXML",
+	"moduleName": "customer/opensap/manage/cargo/changes/fragments/ShareButton.fragment.xml",
+	"reference": "customer.opensap.manage.cargo",
+	"packageName": "$TMP",
+	"content": {
+		"targetAggregation": "content",
+		"index": 8,
+		"fragmentPath": "fragments/ShareButton.fragment.xml"
+	},
+	"selector": {
+		"id": "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ListReport.view.ListReport::SEPMRA_C_PD_Product--template::ListReport::TableToolbar",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/nw.epm.refapps.st.prod.manage/appVariants/customer.opensap.manage.cargo/changes/",
+	"projectId": "customer.opensap.manage.cargo",
+	"creation": "2022-10-14T14:56:31.584Z",
+	"originalLanguage": "EN",
+	"support": {
+		"generator": "sap.ui.rta.command",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.102.1",
+		"sourceChangeFileName": "",
+		"compositeCommand": "",
+		"command": "addXML"
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

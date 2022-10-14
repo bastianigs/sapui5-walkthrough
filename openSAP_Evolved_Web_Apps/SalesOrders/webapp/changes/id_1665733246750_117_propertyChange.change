@@ -1,0 +1,37 @@
+{
+	"fileName": "id_1665733246750_117_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"moduleName": "",
+	"reference": "SalesOrders.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "exportType",
+		"newValue": "UI5Client"
+	},
+	"selector": {
+		"id": "SalesOrders::sap.suite.ui.generic.template.ListReport.view.ListReport::SalesOrderSet--listReport",
+		"type": "sap.ui.comp.smarttable.SmartTable",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/SalesOrders/changes/",
+	"projectId": "SalesOrders",
+	"creation": "2022-10-14T07:42:06.957Z",
+	"originalLanguage": "EN",
+	"support": {
+		"generator": "sap.ui.rta.command",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.102.1",
+		"sourceChangeFileName": "",
+		"compositeCommand": "",
+		"command": "property"
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

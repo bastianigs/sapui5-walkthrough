@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<!-- IMPORTANT
+			This HTML file is meant for testing the application/component standalone, outside the Unified Shell.
+			Some integration functionality, personalization etc. will not be available when running standalone.
+	-->
+
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+
+<script id="sap-ui-script-placeholder"></script>
+
+<!-- this is loaded to enable ushell services -->
+<script src="../../test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
+<script id="sap-ui-bootstrap" src="./../resources/sap-ui-core.js" data-sap-ui-libs="sap.m, sap.ushell, sap.me, sap.ui.table, sap.ui.layout, sap.ui.rta, sap.ui.dt, sap.viz, sap.ui.fl, sap.ui.comp, sap.suite.ui.generic.template" data-sap-ui-theme="sap_belize" data-sap-ui-xx-bindingsyntax="complex" data-sap-ui-compatversion="edge" data-sap-ui-flexibilityservices="[{&quot;applyConnector&quot;:&quot;PreviewConnector&quot;,&quot;writeConnector&quot;:&quot;sap/ui/fl/write/connectors/BaseConnector&quot;,&quot;custom&quot;:true,&quot;layers&quot;:[&quot;VENDOR&quot;]}]">
+</script>
+	<script src="https://webidecp-qv4etfmv58.dispatcher.hana.ondemand.com/uiadaptationstable_sapwebide/client/v1.0.97_1652174095410/src/uiadaptation/util/AppVariantPreviewHelper.js"></script>
+
+	<script src="https://webidecp-qv4etfmv58.dispatcher.hana.ondemand.com/uiadaptationstable_sapwebide/client/v1.0.97_1652174095410/src/adaptationproject/util/LoadChangesLrepPreview.js"></script>
+
+	<script>(function () {
+			document.addEventListener('load', function (event) {
+				var element = event.target;
+				if (element.id === "OpaFrame") {
+					var opaFrameElementDocument = document.getElementById("OpaFrame").contentWindow.document;
+					var scriptObject = opaFrameElementDocument.createElement("script");
+					scriptObject.type = "text/javascript";
+					scriptObject.innerHTML = "sap.ui.getCore().loadLibrary('sap.ui.fl'); jQuery.getScript('https://webidecp-qv4etfmv58.dispatcher.hana.ondemand.com/uiadaptationstable_sapwebide/client/v1.0.97_1652174095410/src/adaptationproject/util/LoadChangesLrepPreview.js')";
+					opaFrameElementDocument.head.appendChild(scriptObject);
+				}
+			}, true);
+		})()</script>
+
+	<script>window['manifest'] = {"customer.opensap.manage.cargo":{ "name": "nw.epm.refapps.st.prod.manage", "url": "/sap/bc/ui5_ui5/sap/zsample_prodman/~AC31D8E1CA4DBF0355789CDD5603D4D3~5", "manifest":{ "_version": "1.5.0", "sap.app":{ "id": "customer.opensap.manage.cargo", "type": "application", "i18n": "i18n/i18n.properties", "applicationVersion":{ "version": "3.0.0" }, "title": "Manage Cargo", "description": "EPM Reference App 'Manage Products' - SAP Fiori Elements Version", "tags":{ "keywords":[] }, "ach": "BC-SRV-NWD-FRA", "dataSources":{ "mainService":{ "uri": "/sap/opu/odata/sap/SEPMRA_PROD_MAN/", "type": "OData", "settings":{ "annotations":[ "SEPMRA_PROD_MAN_ANNO_MDL", "annotations" ], "localUri": "localService/mockdata/metadata.xml" } }, "SEPMRA_PROD_MAN_ANNO_MDL":{ "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='SEPMRA_PROD_MAN_ANNO_MDL',Version='0001')/$value/", "type": "ODataAnnotation", "settings":{ "localUri": "localService/SEPMRA_PROD_MAN_ANNO_MDL.xml" } }, "annotations":{ "uri": "annotations/annotations.xml", "type": "ODataAnnotation", "settings":{ "localUri": "annotations/annotations.xml" } } }, "offline":false, "resources": "resources.json", "sourceTemplate":{ "id": "ui5template.smarttemplate", "version": "1.0.0" } }, "sap.ui":{ "technology": "UI5", "icons":{ "icon": "sap-icon://Fiori6/F0865", "favIcon": "icon/F0865_Manage_Products.ico", "phone": "icon/launchicon/57_iPhone_Desktop_Launch.png", "phone@2": "icon/launchicon/114_iPhone-Retina_Web_Clip.png", "tablet": "icon/launchicon/72_iPad_Desktop_Launch.png", "tablet@2": "icon/launchicon/144_iPad_Retina_Web_Clip.png" }, "deviceTypes":{ "desktop":true, "tablet":true, "phone":true } }, "sap.ui5":{ "resources":{ "js":[], "css":[] }, "dependencies":{ "minUI5Version": "1.44.17", "libs":{ "sap.collaboration":{}, "sap.m":{}, "sap.suite.ui.generic.template":{}, "sap.ui.comp":{}, "sap.ui.core":{}, "sap.ui.generic.app":{} } }, "models":{ "i18n":{ "type": "sap.ui.model.resource.ResourceModel", "uri": "i18n/i18n.properties" }, "@i18n":{ "preload":true, "type": "sap.ui.model.resource.ResourceModel", "uri": "i18n/i18n.properties" }, "i18n|sap.suite.ui.generic.template.ListReport|SEPMRA_C_PD_Product":{ "type": "sap.ui.model.resource.ResourceModel", "uri": "i18n/ListReport/SEPMRA_C_PD_Product/i18n.properties", "settings":{ "enhanceWith":[{ "bundleUrl": "i18n/ListReport/SEPMRA_C_PD_Product/i18n.properties", "bundleUrlRelativeTo": "manifest" } ] } }, "i18n|sap.suite.ui.generic.template.ObjectPage|SEPMRA_C_PD_Product":{ "type": "sap.ui.model.resource.ResourceModel", "uri": "i18n/ObjectPage/SEPMRA_C_PD_Product/i18n.properties", "settings":{ "enhanceWith":[{ "bundleUrl": "i18n/ObjectPage/SEPMRA_C_PD_Product/i18n.properties", "bundleUrlRelativeTo": "manifest" } ] } }, "":{ "preload":true, "dataSource": "mainService", "settings":{ "defaultBindingMode": "TwoWay", "refreshAfterChange":false, "defaultCountMode": "Inline" } } }, "extends":{ "extensions":{ "sap.ui.controllerExtensions":{ "sap.suite.ui.generic.template.ListReport.view.ListReport":{ "controllerName": "nw.epm.refapps.st.prod.manage.ext.controller.CustomFilter", "sap.ui.generic.app":{} } }, "sap.ui.viewExtensions":{ "sap.suite.ui.generic.template.ListReport.view.ListReport":{ "SmartFilterBarControlConfigurationExtension|SEPMRA_C_PD_Product":{ "className": "sap.ui.core.Fragment", "fragmentName": "nw.epm.refapps.st.prod.manage.ext.fragment.CustomFilter", "type": "XML" } } } } }, "contentDensities":{ "compact":true, "cozy":true }, "componentName": "nw.epm.refapps.st.prod.manage", "appVariantId": "customer.opensap.manage.cargo", "appVariantIdHierarchy":[{ "appVariantId": "nw.epm.refapps.st.prod.manage.Component", "layer": "VENDOR", "version": "3.0.0" } ] }, "sap.ui.generic.app":{ "pages":[{ "entitySet": "SEPMRA_C_PD_Product", "component":{ "name": "sap.suite.ui.generic.template.ListReport", "list":true, "settings":{ "gridTable":false, "multiSelect":true, "smartVariantManagement":true } }, "pages":[{ "entitySet": "SEPMRA_C_PD_Product", "component":{ "name": "sap.suite.ui.generic.template.ObjectPage", "settings":{ "editableHeaderContent":true } }, "pages":[] } ] } ] }, "sap.platform.hcp":{ "uri": "" }, "sap.fiori":{ "registrationIds":[ "F1647" ], "archeType": "transactional" }, "sap.platform.abap":{ "uri": "/sap/bc/ui5_ui5/sap/zsample_prodman", "_version": "1.1.0" } }, "self":{ "name": "nw.epm.refapps.st.prod.manage", "url": "/sap/bc/ui5_ui5/sap/zsample_prodman/~AC31D8E1CA4DBF0355789CDD5603D4D3~5" }, "asyncHints":{ "libs":[{ "name": "sap.ui.generic.app" },{ "name": "sap.ui.core" },{ "name": "sap.ui.comp" },{ "name": "sap.suite.ui.generic.template" },{ "name": "sap.m" },{ "name": "sap.collaboration" },{ "name": "sap.ui.fl" } ], "requests":[{ "name": "sap.ui.fl.changes", "url": "/sap/bc/lrep/flex/data/~eWee1qw72EErnQUQtZJHWLHFsE8=~/nw.epm.refapps.st.prod.manage.Component?version=3.0.0&upToLayerType=PARTNER", "reference": "nw.epm.refapps.st.prod.manage.Component", "cachebusterToken": "eWee1qw72EErnQUQtZJHWLHFsE8=" } ] } }}</script>
+
+<!-- Change loading will be injected -->
+<script>
+    document.title = "Manage Cargo";
+	//Application launch configuration
+	sap.ui.getCore().attachInitEvent(function() {
+			var sVariantID = "customer.opensap.manage.cargo", sLayer = "CUSTOMER_BASE", oComponent, oComponentConfig, sComponentName = "nw.epm.refapps.st.prod.manage", oMergedManifest = window['manifest'];
+		    if(window['manifest']){
+				//if MergedDescriptor is available from app previre service
+				console.log("App variant running on merged manifest from backend.");
+				appVariantPreview.mergedDescriptorAppPreview(oMergedManifest, sVariantID, sLayer).then(function(oShell){
+					oShell.placeAt("content");
+				});
+			}else{
+				//fallback mechanism
+				console.log("Merged descriptor could not be fetched from backend, falling back to non-merged execution");
+				appVariantPreview.fallbackAppVariantPreview(sComponentName, sVariantID, sLayer, window["isInternal"]).then(function(oShell){
+					oShell.placeAt("content");
+				});
+			}
+		});
+</script>
+</head>
+
+<!-- UI Content -->
+<body class="sapUiBody" id="content" role="application">
+</body>
+
+</html>

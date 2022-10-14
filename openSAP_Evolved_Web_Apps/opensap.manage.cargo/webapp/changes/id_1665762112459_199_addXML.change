@@ -1,0 +1,37 @@
+{
+	"fileName": "id_1665762112459_199_addXML",
+	"fileType": "change",
+	"changeType": "addXML",
+	"moduleName": "customer/opensap/manage/cargo/changes/fragments/SupplierMap.fragment.xml",
+	"reference": "customer.opensap.manage.cargo",
+	"packageName": "$TMP",
+	"content": {
+		"targetAggregation": "sections",
+		"index": 4,
+		"fragmentPath": "fragments/SupplierMap.fragment.xml"
+	},
+	"selector": {
+		"id": "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ObjectPage.view.Details::SEPMRA_C_PD_Product--objectPage",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/nw.epm.refapps.st.prod.manage/appVariants/customer.opensap.manage.cargo/changes/",
+	"projectId": "customer.opensap.manage.cargo",
+	"creation": "2022-10-14T15:47:56.463Z",
+	"originalLanguage": "EN",
+	"support": {
+		"generator": "sap.ui.rta.command",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.102.1",
+		"sourceChangeFileName": "",
+		"compositeCommand": "",
+		"command": "addXML"
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

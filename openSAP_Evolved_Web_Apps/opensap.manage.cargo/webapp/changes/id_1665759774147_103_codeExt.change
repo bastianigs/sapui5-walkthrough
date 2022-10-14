@@ -1,0 +1,34 @@
+{
+	"fileName": "id_1665759774147_103_codeExt",
+	"fileType": "change",
+	"changeType": "codeExt",
+	"moduleName": "customer/opensap/manage/cargo/changes/coding/ListReport",
+	"reference": "customer.opensap.manage.cargo",
+	"packageName": "$TMP",
+	"content": {
+		"codeRef": "coding/ListReport.js"
+	},
+	"selector": {
+		"controllerName": "sap.suite.ui.generic.template.ListReport.view.ListReport"
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/nw.epm.refapps.st.prod.manage/appVariants/customer.opensap.manage.cargo/changes/",
+	"projectId": "customer.opensap.manage.cargo",
+	"creation": "2022-10-14T15:02:54.149Z",
+	"originalLanguage": "EN",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.102.1",
+		"sourceChangeFileName": "",
+		"compositeCommand": "",
+		"command": ""
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

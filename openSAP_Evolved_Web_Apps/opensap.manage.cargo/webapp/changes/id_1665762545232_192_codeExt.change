@@ -1,0 +1,34 @@
+{
+	"fileName": "id_1665762545232_192_codeExt",
+	"fileType": "change",
+	"changeType": "codeExt",
+	"moduleName": "customer/opensap/manage/cargo/changes/coding/ObjectPage",
+	"reference": "customer.opensap.manage.cargo",
+	"packageName": "$TMP",
+	"content": {
+		"codeRef": "coding/ObjectPage.js"
+	},
+	"selector": {
+		"controllerName": "sap.suite.ui.generic.template.ObjectPage.view.Details"
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/nw.epm.refapps.st.prod.manage/appVariants/customer.opensap.manage.cargo/changes/",
+	"projectId": "customer.opensap.manage.cargo",
+	"creation": "2022-10-14T15:49:05.293Z",
+	"originalLanguage": "EN",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.102.1",
+		"sourceChangeFileName": "",
+		"compositeCommand": "",
+		"command": ""
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}
